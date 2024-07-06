@@ -9,9 +9,12 @@
 *
 ********************************************************************************/
 import { Card, Modal } from 'react-bootstrap';
+
+// CityCard component handles both summary and detailed views
 export default function CityCard({ city, isDetailed, onClick, show, handleClose }) {
-  const sunriseTime = new Date(city.sys.sunrise * 1000).toLocaleTimeString();
-  const sunsetTime = new Date(city.sys.sunset * 1000).toLocaleTimeString();
+  // Convert Unix timestamps to local time strings
+  const sunriseTime = new Date(city.sunrise * 1000).toLocaleTimeString();
+  const sunsetTime = new Date(city.sunset * 1000).toLocaleTimeString();
 
   if (isDetailed) {
     return (
